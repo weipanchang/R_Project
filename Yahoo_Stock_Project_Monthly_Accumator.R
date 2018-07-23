@@ -15,7 +15,7 @@ df_buy_sell<- data.frame()
 #read from csv file
 #
 #df_stock <-read.csv("/home/wchang/Downloads/data/AAPL.csv", header = TRUE)
-df_stock <-read.csv("/home/wchang/Downloads/data/AAPL.csv", header = TRUE)
+df_stock <-read.csv("/home/wchang/Downloads/data/GOOG.csv", header = TRUE)
 df_stock$Year<- c(substr(df_stock$Date, 1,4))
 df_stock$Month<- c(substr(df_stock$Date, 6,7))
 
@@ -48,7 +48,7 @@ for (i in 1:12) {
   lst.dataframe <- c(lst.dataframe, list(x))
 }
 
-names(lst.dataframe)[c(1:9)] <- paste("df_stock", "_0",1:9, sep="")
+names(lst.dataframe)[c(1:9)] <- paste("df_stock", "_0",1:9, sep="") 
 names(lst.dataframe)[c(10:12)] <- paste("df_stock", "_",10:12, sep="")
 
 for (i in 1:12) {
@@ -94,7 +94,7 @@ df_buy_sell <- df_buy_sell %>%
 #ddply(df_buy_sell, c("Buy_Month"), summarise, mean=mean(cumsum(Profit)), sd=sd(cumsum(Profit)))
 ddply(df_buy_sell, c("Buy_Month"), summarise, mean=mean(Profit), sd=sd(Profit))
 
-#ggplot(data = df_buy_sell, aes(x = Year , y = Profit, group = c(Buy_Month),  color = Buy_Month)) +
+# ggplot(data = df_buy_sell, aes(x = Year , y = Profit, group = c(Buy_Month),  color = Buy_Month)) +
 #  geom_line() +
 #  scale_color_gradientn(colours = rainbow(12))
 
