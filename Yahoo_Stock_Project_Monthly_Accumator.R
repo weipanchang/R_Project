@@ -5,6 +5,8 @@ library(dplyr)
 library(plyr)
 library(tidyverse)
 #library(gapminder)
+rm(list=ls())
+
 options(stringsAsFactors = FALSE)
 df_stock <- data.frame()
 df_buy_stock <- data.frame()
@@ -14,8 +16,8 @@ df_buy_sell<- data.frame()
 #
 #read from csv file
 #
-#df_stock <-read.csv("/home/wchang/Downloads/data/AAPL.csv", header = TRUE)
-df_stock <-read.csv("/home/wchang/Downloads/data/GOOG.csv", header = TRUE)
+df_stock <-read.csv("/home/wchang/Downloads/data/AMZN.csv", header = TRUE)
+#df_stock <-read.csv("/home/wchang/Downloads/data/GOOG.csv", header = TRUE)
 df_stock$Year<- c(substr(df_stock$Date, 1,4))
 df_stock$Month<- c(substr(df_stock$Date, 6,7))
 
